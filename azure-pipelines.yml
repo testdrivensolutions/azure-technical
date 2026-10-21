@@ -1,0 +1,41 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pr:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  terraformVersion: '1.14.6'
+
+steps:
+  - checkout: self
+    persistCredentials: false
+
+  - bash: |
+      set -euo pipefail
+      version="$(terraformVersion)"
+      archive="terraform_${version}_linux_amd64.zip"
+      curl --fail --silent --show-error --location --output "$archive" "https://releases.hashicorp.com/terraform/${version}/${archive}"
+      curl --fail --silent --show-error --location --output SHA256SUMS "https://releases.hashicorp.com/terraform/${version}/terraform_${version}_SHA256SUMS"
+      grep "  ${archive}$" SHA256SUMS | sha256sum --check
+      unzip -o "$archive" -d "$(Agent.TempDirectory)/terraform-bin"
+      echo "##vso[task.prependpath]$(Agent.TempDirectory)/terraform-bin"
+    workingDirectory: $(Agent.TempDirectory)
+    displayName: Install Terraform
+
+  - bash: terraform fmt -recursive
+    displayName: Check formatting
+
+  - bash: terraform validate -no-color
+    displayName: Validate Terraform
+    continueOnError: true
+
+  - bash: terraform init -backend=false -input=false
+    displayName: Initialize Terraform

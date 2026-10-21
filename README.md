@@ -29,3 +29,9 @@ Successful validation does not prove that Azure will accept the configuration or
 The GitHub Actions workflow runs formatting and validation on pushes and pull requests. It requires no Azure credentials and does not deploy resources.
 
 Keep local variables, state and plan files out of Git. Commit `.terraform.lock.hcl` after successful initialization.
+
+## Pipeline review
+
+Review `azure-pipelines.yml` with the interviewer. Explain what it does, whether its checks are reliable, and what you would change. You may consult documentation and edit the file. No Azure DevOps access or pipeline execution is required.
+
+The Azure DevOps file is a separate review exercise; the GitHub Actions workflow remains the repository’s automated check. Neither pipeline deploys resources.
