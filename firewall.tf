@@ -5,7 +5,7 @@ resource "azurerm_network_security_group" "application" {
 
   security_rule {
     name                       = "deny-outbound-https"
-    priority                   = 100
+    priority                   = 200
     direction                  = "Outbound"
     access                     = "Deny"
     protocol                   = "Tcp"
@@ -17,7 +17,7 @@ resource "azurerm_network_security_group" "application" {
 
   security_rule {
     name                       = "allow-storage-https"
-    priority                   = 200
+    priority                   = 100
     direction                  = "Outbound"
     access                     = "Allow"
     protocol                   = "Tcp"
