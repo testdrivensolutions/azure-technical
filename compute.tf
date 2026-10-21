@@ -24,6 +24,7 @@ resource "azurerm_linux_web_app" "application" {
   }
 
   app_settings = {
-    STORAGE_ACCOUNT_URL = azurerm_storage_account.application.primary_blob_endpoint
+    APPLICATIONINSIGHTS_CONNECTION_STRING = azurerm_application_insights.application.instrumentation_key
+    STORAGE_ACCOUNT_URL                   = azurerm_storage_account.application.primary_blob_endpoint
   }
 }
