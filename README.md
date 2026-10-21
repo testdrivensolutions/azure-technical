@@ -35,3 +35,7 @@ Keep local variables, state and plan files out of Git. Commit `.terraform.lock.h
 Review `azure-pipelines.yml` with the interviewer. Explain what it does, whether its checks are reliable, and what you would change. You may consult documentation and edit the file. No Azure DevOps access or pipeline execution is required.
 
 The Azure DevOps file is a separate review exercise; the GitHub Actions workflow remains the repository’s automated check. Neither pipeline deploys resources.
+
+## Networking review
+
+Use [the networking review](review/networking.md) for the networking and firewall discussion. The proposed code is separate from the active Terraform configuration.
