@@ -47,3 +47,7 @@ The Azure DevOps file is a separate review exercise; the GitHub Actions workflow
 ## Networking review
 
 Use [the networking review](review/networking.md) for the networking and firewall discussion. The proposed code is separate from the active Terraform configuration.
+
+## Identity review
+
+Use [the identity review](review/identity.md) to discuss managed identities, permissions and authentication. The proposed assignment is separate from the active Terraform configuration.
