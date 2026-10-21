@@ -4,11 +4,11 @@ Keep this file outside the candidate repository. It contains the answers.
 
 ## Terraform: deliberate issues
 
-These notes refer to the main.tf provided in the chat. There are three deliberate issues. Finding unrelated improvements is useful, but is not required to complete this section.
+These notes refer to the files in candidate/terraform. There are three deliberate issues. Finding unrelated improvements is useful, but is not required to complete this section.
 
 ### 1. Reference to an undeclared service plan
 
-Location: azurerm_linux_web_app.application.service_plan_id
+Location: compute.tf — azurerm_linux_web_app.application.service_plan_id
 
 Current: `azurerm_service_plan.web.id`
 
@@ -18,7 +18,7 @@ The resource is declared as application, not web. After provider initialization,
 
 ### 2. Subnet outside the virtual network address space
 
-Location: azurerm_subnet.application.address_prefixes
+Location: networking.tf — azurerm_subnet.application.address_prefixes
 
 Current: `["10.30.1.0/24"]`
 
@@ -30,7 +30,7 @@ Reference: [Plan Azure virtual networks](https://learn.microsoft.com/en-us/azure
 
 ### 3. Management-plane role used for blob data access
 
-Location: azurerm_role_assignment.application_storage.role_definition_name
+Location: identity.tf — azurerm_role_assignment.application_storage.role_definition_name
 
 Current: `"Reader"`
 
