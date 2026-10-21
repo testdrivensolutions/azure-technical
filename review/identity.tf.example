@@ -1,7 +1,0 @@
-data "azurerm_subscription" "current" {}
-
-resource "azurerm_role_assignment" "application_access_proposal" {
-  scope                = data.azurerm_subscription.current.id
-  role_definition_name = "Owner"
-  principal_id         = azurerm_linux_web_app.application.identity[0].tenant_id
-}
