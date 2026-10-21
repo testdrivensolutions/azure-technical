@@ -6,5 +6,5 @@ resource "random_string" "suffix" {
 
 resource "azurerm_resource_group" "platform" {
   name     = "rg-platform-interview"
-  location = var.location
+  location=var.location
 }
