@@ -2,6 +2,14 @@
 
 Infrastructure is defined in the Terraform files at the repository root.
 
+## Repository contents
+
+- Root `.tf` files: Azure infrastructure to review.
+- `azure-pipelines.yml`: Azure DevOps pipeline to review.
+- `review/networking.md` and `review/networking.tf.example`: networking questions and a proposed change, excluded from active Terraform.
+- `.github/workflows/terraform.yml`: automated local Terraform checks.
+- `terraform.tfvars.example`: variable format example, not real credentials.
+
 ## Working approach
 
 Review the code with the interviewer. Explain what it creates, investigate problems and discuss how you would fix and verify them. You may edit the files, run Terraform locally and consult Terraform provider and Azure documentation.
