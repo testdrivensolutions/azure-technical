@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "application" {
-  name                     = "stapp${random_string.suffix.result}"
+  name                     = "st-app-${random_string.suffix.result}"
   resource_group_name      = azurerm_resource_group.platform.name
   location                 = azurerm_resource_group.platform.location
   account_tier             = "Standard"
