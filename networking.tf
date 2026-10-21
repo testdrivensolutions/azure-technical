@@ -9,7 +9,7 @@ resource "azurerm_subnet" "application" {
   name                 = "snet-application"
   resource_group_name  = azurerm_resource_group.platform.name
   virtual_network_name = azurerm_virtual_network.platform.name
-  address_prefixes     = ["10.20.1.0/24"]
+  address_prefixes     = ["10.30.1.0/24"]
 
   delegation {
     name = "app-service"

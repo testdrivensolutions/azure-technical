@@ -10,7 +10,7 @@ resource "azurerm_linux_web_app" "application" {
   name                = "app-platform-${random_string.suffix.result}"
   resource_group_name = azurerm_resource_group.platform.name
   location            = azurerm_resource_group.platform.location
-  service_plan_id     = azurerm_service_plan.application.id
+  service_plan_id     = azurerm_service_plan.web.id
   https_only          = true
 
   virtual_network_subnet_id = azurerm_subnet.application.id
@@ -24,7 +24,7 @@ resource "azurerm_linux_web_app" "application" {
   }
 
   app_settings = {
-    APPLICATIONINSIGHTS_CONNECTION_STRING = azurerm_application_insights.application.connection_string
+    APPLICATIONINSIGHTS_CONNECTION_STRING = azurerm_application_insights.application.instrumentation_key
     STORAGE_ACCOUNT_URL                   = azurerm_storage_account.application.primary_blob_endpoint
   }
 }
